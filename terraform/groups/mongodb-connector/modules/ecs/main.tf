@@ -11,9 +11,9 @@ resource "aws_ecs_cluster" "connector" {
 data "template_file" "container_definitions" {
   template = file("${path.module}/templates/container_definitions.json.tpl")
   vars = {
-    aws_ecr_url              = var.ecr_url
-    tag                      = var.container_image_version
-    aws_cloudwatch_log_group = var.service_name
+    aws_ecr_url               = var.ecr_url
+    tag                       = var.container_image_version
+    cloudwatch_log_group_name = var.service_name
   }
 }
 
