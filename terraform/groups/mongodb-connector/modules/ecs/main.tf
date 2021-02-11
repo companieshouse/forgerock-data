@@ -23,7 +23,7 @@ resource "aws_ecs_task_definition" "connector" {
   network_mode             = "awsvpc"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   cpu                      = var.task_cpu
-  memory                   = var.memory
+  memory                   = var.task_memory
   requires_compatibilities = ["FARGATE"]
   container_definitions    = data.template_file.container_definitions.rendered
 }
