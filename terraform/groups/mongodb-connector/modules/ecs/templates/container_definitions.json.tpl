@@ -5,7 +5,8 @@
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
-        "awslogs-group": "${cloudwatch_log_group_name}"
+        "awslogs-group": "${cloudwatch_log_group_name}",
+        "awslogs-region": "${region}"
       }
     }
   }

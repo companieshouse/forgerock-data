@@ -14,6 +14,7 @@ data "template_file" "container_definitions" {
     aws_ecr_url               = var.ecr_url
     tag                       = var.container_image_version
     cloudwatch_log_group_name = var.service_name
+    region                    = var.region
   }
 }
 
