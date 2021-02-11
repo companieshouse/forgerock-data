@@ -19,7 +19,7 @@ variable "service_name" {
   default     = "forgerock-mongodb-connector"
 }
 
-variable "ecr-url" {
+variable "ecr_url" {
   type = string
 }
 
