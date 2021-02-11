@@ -15,9 +15,17 @@ data "aws_subnet_ids" "data_subnets" {
   }
 }
 
+###
+# Modules
+###
+module "monitoring" {
+  source       = "./modules/monitoring"
+  service_name = var.service_name
+}
 
 module "ecs" {
   source                  = "./modules/ecs"
+  depends_on              = [module.monitoring]
   service_name            = var.service_name
   vpc_id                  = data.aws_vpc.vpc.id
   subnet_ids              = data.aws_subnet_ids.data_subnets.ids

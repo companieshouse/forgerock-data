@@ -8,11 +8,12 @@ resource "aws_ecs_cluster" "connector" {
 ###
 # Task and Service
 ###
-data "template_file" "task_definition" {
-  template = file("${path.module}/templates/task_definition.json.tpl")
+data "template_file" "container_definitions" {
+  template = file("${path.module}/templates/container_definitions.json.tpl")
   vars = {
-    aws_ecr_repository = var.ecr_url
-    tag                = var.container_image_version
+    aws_ecr_url              = var.ecr_url
+    tag                      = var.container_image_version
+    aws_cloudwatch_log_group = var.service_name
   }
 }
 
@@ -23,22 +24,22 @@ resource "aws_ecs_task_definition" "connector" {
   cpu                      = 256
   memory                   = 2048
   requires_compatibilities = ["FARGATE"]
-  container_definitions    = data.template_file.task_definition.rendered
+  container_definitions    = data.template_file.container_definitions.rendered
 }
 
-# resource "aws_ecs_service" "connector" {
-#   name            = var.service_name
-#   cluster         = aws_ecs_cluster.connector.id
-#   task_definition = aws_ecs_task_definition.connector.arn
-#   desired_count   = 1
-#   launch_type     = "FARGATE"
+resource "aws_ecs_service" "connector" {
+  name            = var.service_name
+  cluster         = aws_ecs_cluster.connector.id
+  task_definition = aws_ecs_task_definition.connector.arn
+  desired_count   = 1
+  launch_type     = "FARGATE"
 
-#   network_configuration {
-#     security_groups  = [aws_security_group.ecs_tasks.id]
-#     subnets          = var.subnet_ids
-#     assign_public_ip = true
-#   }
-# }
+  network_configuration {
+    security_groups  = [aws_security_group.ecs_tasks.id]
+    subnets          = var.subnet_ids
+    assign_public_ip = false
+  }
+}
 
 ###
 # Security Group
