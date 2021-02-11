@@ -10,9 +10,9 @@ variable "vpc_id" {
   type = string
 }
 
-# variable "subnets" {
-#   type = list(any)
-# }
+variable "subnet_ids" {
+  type = list(any)
+}
 
 # variable "ecr_url" {
 #   type = string

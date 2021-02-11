@@ -35,7 +35,7 @@ resource "aws_ecs_cluster" "connector" {
 
 #   network_configuration {
 #     security_groups  = [aws_security_group.ecs_tasks.id]
-#     subnets          = var.subnets
+#     subnets          = var.subnet_ids
 #     assign_public_ip = true
 #   }
 # }
