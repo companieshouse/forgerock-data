@@ -2,7 +2,7 @@
 # ECS Cluster
 ###
 resource "aws_ecs_cluster" "connector" {
-  name = var.application_name
+  name = var.service_name
 }
 
 # ###
@@ -17,7 +17,7 @@ resource "aws_ecs_cluster" "connector" {
 # }
 
 # resource "aws_ecs_task_definition" "connector" {
-#   family                   = var.application_name
+#   family                   = var.service_name
 #   network_mode             = "awsvpc"
 #   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 #   cpu                      = 256
@@ -27,7 +27,7 @@ resource "aws_ecs_cluster" "connector" {
 # }
 
 # resource "aws_ecs_service" "connector" {
-#   name            = var.application_name
+#   name            = var.service_name
 #   cluster         = aws_ecs_cluster.connector.id
 #   task_definition = aws_ecs_task_definition.connector.arn
 #   desired_count   = 1
@@ -40,21 +40,21 @@ resource "aws_ecs_cluster" "connector" {
 #   }
 # }
 
-# ###
-# # Security Group
-# ###
-# resource "aws_security_group" "ecs_tasks" {
-#   name        = "ecs-tasks"
-#   description = "ECS tasks"
-#   vpc_id      = var.vpc_id
+###
+# Security Group
+###
+resource "aws_security_group" "ecs_tasks" {
+  name        = var.service_name
+  description = "${var.service_name} ECS tasks"
+  vpc_id      = var.vpc_id
 
-#   egress {
-#     protocol    = "-1"
-#     from_port   = 0
-#     to_port     = 0
-#     cidr_blocks = ["0.0.0.0/0"]
-#   }
-# }
+  egress {
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
 # data "aws_iam_policy_document" "ecs_task_execution_role" {
 #   version = "2012-10-17"

@@ -1,12 +1,16 @@
 variable "region" {
   type        = string
   description = "AWS region for deployment"
-  default     = "eu-west-2"
 }
 
-variable "application_name" {
+variable "environment" {
   type        = string
-  description = "Application name. Used for naming AWS resources"
+  description = "The environment name to be used when creating AWS resources"
+}
+
+variable "service_name" {
+  type        = string
+  description = "The service name to be used when creating AWS resources"
   default     = "forgerock-mongodb-connector"
 }
 
