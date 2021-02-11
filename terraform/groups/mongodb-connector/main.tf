@@ -19,9 +19,9 @@ data "aws_subnet_ids" "data_subnets" {
 module "ecs" {
   source                  = "./modules/ecs"
   service_name            = var.service_name
-  container_image_version = var.container_image_version
   vpc_id                  = data.aws_vpc.vpc.id
   subnet_ids              = data.aws_subnet_ids.data_subnets.ids
-  # ecr_url = 
+  ecr_url                 = var.ecr_url
+  container_image_version = var.container_image_version
 }
 

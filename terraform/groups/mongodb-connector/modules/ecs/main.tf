@@ -5,26 +5,26 @@ resource "aws_ecs_cluster" "connector" {
   name = var.service_name
 }
 
-# ###
-# # Task and Service
-# ###
-# data "template_file" "task_definition" {
-#   template = file("${path.module}/templates/task_definition.json.tpl")
-#   vars = {
-#     aws_ecr_repository = var.ecr_url
-#     tag                = var.container_image_version
-#   }
-# }
+###
+# Task and Service
+###
+data "template_file" "task_definition" {
+  template = file("${path.module}/templates/task_definition.json.tpl")
+  vars = {
+    aws_ecr_repository = var.ecr_url
+    tag                = var.container_image_version
+  }
+}
 
-# resource "aws_ecs_task_definition" "connector" {
-#   family                   = var.service_name
-#   network_mode             = "awsvpc"
-#   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-#   cpu                      = 256
-#   memory                   = 2048
-#   requires_compatibilities = ["FARGATE"]
-#   container_definitions    = data.template_file.task_definition.rendered
-# }
+resource "aws_ecs_task_definition" "connector" {
+  family                   = var.service_name
+  network_mode             = "awsvpc"
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  cpu                      = 256
+  memory                   = 2048
+  requires_compatibilities = ["FARGATE"]
+  container_definitions    = data.template_file.task_definition.rendered
+}
 
 # resource "aws_ecs_service" "connector" {
 #   name            = var.service_name
@@ -56,26 +56,26 @@ resource "aws_security_group" "ecs_tasks" {
   }
 }
 
-# data "aws_iam_policy_document" "ecs_task_execution_role" {
-#   version = "2012-10-17"
-#   statement {
-#     sid     = ""
-#     effect  = "Allow"
-#     actions = ["sts:AssumeRole"]
+data "aws_iam_policy_document" "ecs_task_execution_role" {
+  version = "2012-10-17"
+  statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
 
-#     principals {
-#       type        = "Service"
-#       identifiers = ["ecs-tasks.amazonaws.com"]
-#     }
-#   }
-# }
+    principals {
+      type        = "Service"
+      identifiers = ["ecs-tasks.amazonaws.com"]
+    }
+  }
+}
 
-# resource "aws_iam_role" "ecs_task_execution_role" {
-#   name               = "ecs-execution-role"
-#   assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
-# }
+resource "aws_iam_role" "ecs_task_execution_role" {
+  name               = "ecs-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
+}
 
-# resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
-#   role       = aws_iam_role.ecs_task_execution_role.name
-#   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
-# }
+resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
+  role       = aws_iam_role.ecs_task_execution_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+}

@@ -14,7 +14,7 @@ variable "subnet_ids" {
   type = list(any)
 }
 
-# variable "ecr_url" {
-#   type = string
-# }
+variable "ecr_url" {
+  type = string
+}
 
