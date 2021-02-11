@@ -42,7 +42,7 @@ resource "aws_ecs_service" "connector" {
 }
 
 ###
-# Security Group
+# Security & IAM
 ###
 resource "aws_security_group" "ecs_tasks" {
   name        = var.service_name
