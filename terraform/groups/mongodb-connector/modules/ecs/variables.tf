@@ -22,3 +22,10 @@ variable "ecr_url" {
   type = string
 }
 
+variable "task_cpu" {
+  type = number
+}
+
+variable "task_memory" {
+  type = number
+}

@@ -28,3 +28,12 @@ variable "container_image_version" {
   description = "Version of the docker image to deploy"
   default     = "latest"
 }
+
+variable "task_cpu" {
+  type        = number
+  description = "The cpu unit limit for the ECS task"
+}
+variable "task_memory" {
+  type        = number
+  description = "The memory limit for the ECS task"
+}

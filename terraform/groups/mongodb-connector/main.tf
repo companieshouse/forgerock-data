@@ -32,5 +32,7 @@ module "ecs" {
   subnet_ids              = data.aws_subnet_ids.data_subnets.ids
   ecr_url                 = var.ecr_url
   container_image_version = var.container_image_version
+  task_cpu                = var.task_cpu
+  task_memory             = var.task_memory
 }
 
