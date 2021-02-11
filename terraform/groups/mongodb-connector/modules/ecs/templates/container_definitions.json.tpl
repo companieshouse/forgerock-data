@@ -6,7 +6,8 @@
       "logDriver": "awslogs",
       "options": {
         "awslogs-group": "${cloudwatch_log_group_name}",
-        "awslogs-region": "${region}"
+        "awslogs-region": "${region}",
+        "awslogs-stream-prefix": "mongodb-connector"
       }
     }
   }
