@@ -1,1 +1,2 @@
 environment = "development"
+vpc_name = "Test & Development"

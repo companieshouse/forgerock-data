@@ -8,6 +8,11 @@ variable "environment" {
   description = "The environment name to be used when creating AWS resources"
 }
 
+variable "vpc_name" {
+  type = string
+  description = "The name of the VPC to be used for AWS resources"
+}
+
 variable "service_name" {
   type        = string
   description = "The service name to be used when creating AWS resources"
