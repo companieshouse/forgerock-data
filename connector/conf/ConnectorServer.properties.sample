@@ -10,7 +10,7 @@ connectorserver.url=wss\://{FIDC_URL}/openicf
 ##
 ## The connector server name
 ##
-connectorserver.connectorServerName=mongodb
+connectorserver.connectorServerName={CONNECTOR_NAME}
 ##
 ## The principal to authenticate
 ##
