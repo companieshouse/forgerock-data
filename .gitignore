@@ -1,0 +1,3 @@
+.terraform
+*tfplan
+connector/conf/ConnectorServer.properties

@@ -1,0 +1,4 @@
+environment = "development"
+vpc_name = "Test & Development"
+task_cpu = 1024
+task_memory = 2048
