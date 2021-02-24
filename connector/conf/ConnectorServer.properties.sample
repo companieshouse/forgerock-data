@@ -42,7 +42,7 @@ connectorserver.pingPongInterval=10
 ##
 ## The WebSocket connections housekeeping interval (seconds)
 ##
-connectorserver.housekeepingInterval=5
+connectorserver.housekeepingInterval=9
 ##
 ## The WebSockets groups check interval (seconds)
 ##
@@ -54,11 +54,11 @@ connectorserver.webSocketConnections=3
 ##
 ## Time to live of a websocket connection (seconds)
 ##
-connectorserver.connectionTtl=60
+connectorserver.connectionTtl=88
 ##
 ## New Connections interval (seconds)
 ##
-connectorserver.newConnectionsInterval=10
+connectorserver.newConnectionsInterval=26
 ##
 ## Token endpoint to retrieve access token if using OAuth2 to authenticate against IDM
 ##
