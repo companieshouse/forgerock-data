@@ -1,0 +1,4 @@
+environment = "staging"
+vpc_name = "CHS"
+task_cpu = 1024
+task_memory = 2048

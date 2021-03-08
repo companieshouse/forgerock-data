@@ -37,3 +37,23 @@ variable "task_memory" {
   type        = number
   description = "The memory limit for the ECS task"
 }
+
+variable "rcs_client_secret" {
+  type        = string
+  description = "Client secret for the FIDC RSCClient application"
+}
+
+variable "fidc_url" {
+  type = string
+
+}
+
+variable "rcs_server_key" {
+  type        = string
+  description = "Server key used by the remote connector server"
+}
+
+variable "connector_name" {
+  type        = string
+  description = "FIDC remote connector name"
+}
