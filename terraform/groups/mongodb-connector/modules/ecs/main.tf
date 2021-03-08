@@ -15,6 +15,10 @@ data "template_file" "container_definitions" {
     tag                       = var.container_image_version
     cloudwatch_log_group_name = var.service_name
     region                    = var.region
+    rcs_client_secret         = var.rcs_client_secret
+    fidc_url                  = var.fidc_url
+    server_key                = var.rcs_server_key
+    connector_name            = var.connector_name
   }
 }
 

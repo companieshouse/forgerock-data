@@ -29,3 +29,19 @@ variable "task_cpu" {
 variable "task_memory" {
   type = number
 }
+
+variable "rcs_client_secret" {
+  type = string
+}
+
+variable "fidc_url" {
+  type = string
+}
+
+variable "rcs_server_key" {
+  type = string
+}
+
+variable "connector_name" {
+  type = string
+}

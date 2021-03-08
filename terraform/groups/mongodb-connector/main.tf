@@ -34,5 +34,9 @@ module "ecs" {
   container_image_version = var.container_image_version
   task_cpu                = var.task_cpu
   task_memory             = var.task_memory
+  rcs_client_secret       = var.rcs_client_secret
+  fidc_url                = var.fidc_url
+  rcs_server_key          = var.rcs_server_key
+  connector_name          = var.connector_name
 }
 
