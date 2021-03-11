@@ -3,7 +3,7 @@ data "template_file" "container_definitions" {
   vars = {
     aws_ecr_url               = var.ecr_url
     tag                       = var.container_image_version
-    cloudwatch_log_group_name = var.service_name
+    cloudwatch_log_group_name = var.log_group_name
     cloudwatch_log_prefix     = var.log_prefix
     region                    = var.region
     rcs_client_secret         = var.rcs_client_secret
