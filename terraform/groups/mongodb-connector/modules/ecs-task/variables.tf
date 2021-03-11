@@ -1,3 +1,6 @@
+variable "region" {
+  type = string
+}
 variable "service_name" {
   type = string
 }
@@ -47,6 +50,10 @@ variable "rcs_server_key" {
 }
 
 variable "connector_name" {
+  type = string
+}
+
+variable "log_group_name" {
   type = string
 }
 
