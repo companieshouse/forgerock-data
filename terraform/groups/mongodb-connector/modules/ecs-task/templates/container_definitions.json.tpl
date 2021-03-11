@@ -25,7 +25,7 @@
       "options": {
         "awslogs-group": "${cloudwatch_log_group_name}",
         "awslogs-region": "${region}",
-        "awslogs-stream-prefix": "mongodb-connector"
+        "awslogs-stream-prefix": "${cloudwatch_log_prefix}"
       }
     }
   }

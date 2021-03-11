@@ -53,7 +53,12 @@ variable "rcs_server_key" {
   description = "Server key used by the remote connector server"
 }
 
-variable "connector_name" {
+variable "connector_name_primary" {
   type        = string
-  description = "FIDC remote connector name"
+  description = "FIDC remote connector name for primary connector"
+}
+
+variable "connector_name_secondary" {
+  type        = string
+  description = "FIDC remote connector name for secondary connector"
 }
