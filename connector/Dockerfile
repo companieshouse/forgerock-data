@@ -15,11 +15,11 @@ RUN yum -y install aws-cli unzip
 RUN mkdir /opt/app
 WORKDIR /opt/app
 
-RUN aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/openicf-zip-${RCS_VERSION}}.zip .
+RUN aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/openicf-zip-${RCS_VERSION}.zip .
 RUN aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/mongodb-connector-${MONGODB_VERSION}.jar .
 
-RUN unzip openicf-zip-${RCS_VERSION}}.zip
-RUN rm openicf-zip-${RCS_VERSION}}.zip
+RUN unzip openicf-zip-${RCS_VERSION}.zip
+RUN rm openicf-zip-${RCS_VERSION}.zip
 RUN mv openicf/* .
 RUN rm -rf openicf
 RUN mv mongodb-connector-${MONGODB_VERSION}.jar connectors
