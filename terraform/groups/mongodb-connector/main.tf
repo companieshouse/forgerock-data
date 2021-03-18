@@ -26,7 +26,6 @@ module "ecs" {
 
 module "ecs-task-primary" {
   source                     = "./modules/ecs-task"
-  depends_on                 = [module.monitoring]
   region                     = var.region
   service_name               = "${var.service_name}-primary"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
@@ -47,7 +46,6 @@ module "ecs-task-primary" {
 
 module "ecs-task-secondary" {
   source                     = "./modules/ecs-task"
-  depends_on                 = [module.monitoring]
   region                     = var.region
   service_name               = "${var.service_name}-secondary"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
