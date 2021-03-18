@@ -46,8 +46,8 @@ module "ecs-task-primary" {
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
   connector_name             = var.connector_name_primary
-  log_group_name             = var.service_name
-  log_prefix                 = "primary"
+  log_group_name             = "forgerock-monitoring"
+  log_prefix                 = "mongodb-connector-primary"
 }
 
 module "ecs-task-secondary" {
@@ -67,7 +67,7 @@ module "ecs-task-secondary" {
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
   connector_name             = var.connector_name_secondary
-  log_group_name             = var.service_name
-  log_prefix                 = "secondary"
+  log_group_name             = "forgerock-monitoring"
+  log_prefix                 = "mongodb-connector-secondary"
 }
 
