@@ -18,11 +18,6 @@ data "aws_subnet_ids" "data_subnets" {
 ###
 # Modules
 ###
-module "monitoring" {
-  source       = "./modules/monitoring"
-  service_name = var.service_name
-}
-
 module "ecs" {
   source       = "./modules/ecs"
   service_name = var.service_name
