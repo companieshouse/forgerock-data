@@ -24,8 +24,8 @@ module "ecs" {
   vpc_id       = data.aws_vpc.vpc.id
 }
 
-module "ecs-task-primary" {
-  source                     = "./modules/ecs-task"
+module "connector-primary" {
+  source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "${var.service_name}-primary"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
@@ -44,8 +44,8 @@ module "ecs-task-primary" {
   log_prefix                 = "mongodb-connector-primary"
 }
 
-module "ecs-task-secondary" {
-  source                     = "./modules/ecs-task"
+module "connector-secondary" {
+  source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "${var.service_name}-secondary"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
