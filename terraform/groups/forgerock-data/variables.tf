@@ -41,7 +41,6 @@ variable "task_memory" {
 variable "rcs_client_secret" {
   type        = string
   description = "Client secret for the FIDC RSCClient application"
-  sensitive = true
 }
 
 variable "fidc_url" {
@@ -51,7 +50,6 @@ variable "fidc_url" {
 variable "rcs_server_key" {
   type        = string
   description = "Server key used by the remote connector server"
-  sensitive = true
 }
 
 variable "connector_name_primary" {
@@ -65,7 +63,6 @@ variable "connector_name_secondary" {
 }
 
 variable "directory_service_password" {
-  type = string
+  type        = string
   description = "Directory Service password used for backup instance"
-  sensitive = true
 }
