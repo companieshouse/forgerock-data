@@ -20,6 +20,19 @@ resource "aws_ecs_task_definition" "ds" {
   container_definitions    = data.template_file.container_definitions.rendered
 }
 
+resource "aws_security_group" "ds" {
+  name        = "${var.service_name}-ds"
+  description = "${var.service_name} directory service"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    protocol        = "tcp"
+    from_port       = 389
+    to_port         = 389
+    security_groups = [var.ecs_task_security_group_id]
+  }
+}
+
 resource "aws_ecs_service" "ds" {
   name            = var.service_name
   cluster         = var.ecs_cluster_id
@@ -28,7 +41,7 @@ resource "aws_ecs_service" "ds" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups  = [var.ecs_task_security_group_id]
+    security_groups  = [var.ecs_task_security_group_id, aws_security_group.ds]
     subnets          = var.subnet_ids
     assign_public_ip = false
   }
