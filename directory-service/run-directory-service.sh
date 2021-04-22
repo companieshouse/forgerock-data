@@ -7,7 +7,7 @@ DEPLOYMENT_KEY=$(./bin/dskeymgr create-deployment-key --deploymentKeyPassword $D
  --deploymentKeyPassword $DS_PASSWORD \
  --rootUserDN uid=admin \
  --rootUserPassword $DS_PASSWORD \
- --hostname $HOSTNAME \
+ --hostname localhost \
  --adminConnectorPort 4444 \
  --ldapPort 389 \
  --profile ds-user-data \
@@ -17,7 +17,7 @@ DEPLOYMENT_KEY=$(./bin/dskeymgr create-deployment-key --deploymentKeyPassword $D
 
 ./bin/dsconfig \
  set-password-policy-prop \
- --hostname $HOSTNAME \
+ --hostname localhost \
  --port 4444 \
  --bindDN uid=admin \
  --bindPassword $DS_PASSWORD \
