@@ -65,11 +65,12 @@ module "connector_secondary" {
 }
 
 module "directory_service_lb" {
-  source       = "./modules/loadbalancing"
-  service_name = "directory-service-backup"
-  vpc_id       = data.aws_vpc.vpc.id
-  subnet_ids   = data.aws_subnet_ids.data_subnets.ids
-  lb_port      = 389
+  source                     = "./modules/loadbalancing"
+  service_name               = "directory-service-backup"
+  vpc_id                     = data.aws_vpc.vpc.id
+  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  lb_port                    = 389
+  ecs_task_security_group_id = module.ecs.task_security_group_id
 }
 
 module "directory_service" {
@@ -89,5 +90,6 @@ module "directory_service" {
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "directory-service-backup"
   target_group_arn           = module.directory_service_lb.target_group_arn
+  lb_security_group_id       = module.directory_service_lb.security_group
 }
 

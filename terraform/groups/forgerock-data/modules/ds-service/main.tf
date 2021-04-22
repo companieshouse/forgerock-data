@@ -29,7 +29,7 @@ resource "aws_security_group" "ds" {
     protocol        = "tcp"
     from_port       = 389
     to_port         = 389
-    security_groups = [var.ecs_task_security_group_id]
+    security_groups = [var.lb_security_group_id]
   }
 }
 
