@@ -41,7 +41,7 @@ resource "aws_ecs_service" "ds" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups  = [var.ecs_task_security_group_id, aws_security_group.ds]
+    security_groups  = [var.ecs_task_security_group_id, aws_security_group.ds.id]
     subnets          = var.subnet_ids
     assign_public_ip = false
   }
