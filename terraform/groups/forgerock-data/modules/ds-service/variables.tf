@@ -52,3 +52,7 @@ variable "log_group_name" {
 variable "log_prefix" {
   type = string
 }
+
+variable "target_group_arn" {
+  type = string
+}

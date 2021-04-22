@@ -24,7 +24,7 @@ module "ecs" {
   vpc_id       = data.aws_vpc.vpc.id
 }
 
-module "connector-primary" {
+module "connector_primary" {
   source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "rcs-primary"
@@ -44,7 +44,7 @@ module "connector-primary" {
   log_prefix                 = "rcs-primary"
 }
 
-module "connector-secondary" {
+module "connector_secondary" {
   source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "rcs-secondary"
@@ -64,7 +64,15 @@ module "connector-secondary" {
   log_prefix                 = "rcs-secondary"
 }
 
-module "directory-service" {
+module "directory_service_lb" {
+  source       = "./modules/loadbalancing"
+  service_name = "directory-service-backup"
+  vpc_id       = data.aws_vpc.vpc.id
+  subnet_ids   = data.aws_subnet_ids.data_subnets.ids
+  lb_port      = 389
+}
+
+module "directory_service" {
   source                     = "./modules/ds-service"
   region                     = var.region
   service_name               = "directory-service-backup"
@@ -80,5 +88,6 @@ module "directory-service" {
   ds_password                = var.directory_service_password
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "directory-service-backup"
+  target_group_arn           = module.directory_service_lb.target_group_arn
 }
 

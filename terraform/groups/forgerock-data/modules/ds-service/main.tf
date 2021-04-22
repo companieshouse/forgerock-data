@@ -45,4 +45,10 @@ resource "aws_ecs_service" "ds" {
     subnets          = var.subnet_ids
     assign_public_ip = false
   }
+
+  load_balancer {
+    target_group_arn = var.target_group_arn
+    container_name   = "directory-service"
+    container_port   = 389
+  }
 }
