@@ -9,7 +9,7 @@ resource "aws_lb" "main" {
 resource "aws_lb_listener" "tcp" {
   load_balancer_arn = aws_lb.main.id
   port              = var.lb_port
-  protocol          = "tcp"
+  protocol          = "TCP"
 
   default_action {
     target_group_arn = aws_lb_target_group.main.id
@@ -20,7 +20,7 @@ resource "aws_lb_listener" "tcp" {
 resource "aws_lb_target_group" "main" {
   name        = var.service_name
   port        = var.lb_port
-  protocol    = "tcp"
+  protocol    = "TCP"
   vpc_id      = var.vpc_id
   target_type = "ip"
 }
