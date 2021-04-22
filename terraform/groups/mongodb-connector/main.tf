@@ -32,7 +32,7 @@ module "connector-primary" {
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = var.container_image_version
+  container_image_version    = "connector-${var.container_image_version}"
   ecr_url                    = var.ecr_url
   task_cpu                   = var.task_cpu
   task_memory                = var.task_memory
@@ -52,7 +52,7 @@ module "connector-secondary" {
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = var.container_image_version
+  container_image_version    = "connector-${var.container_image_version}"
   ecr_url                    = var.ecr_url
   task_cpu                   = var.task_cpu
   task_memory                = var.task_memory
@@ -62,5 +62,22 @@ module "connector-secondary" {
   connector_name             = var.connector_name_secondary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "mongodb-connector-secondary"
+}
+
+module "directory-service" {
+  source                     = "./modules/ds-service"
+  region                     = var.region
+  service_name               = "${var.service_name}-ds"
+  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  ecs_cluster_id             = module.ecs.cluster_id
+  ecs_task_role_arn          = module.ecs.task_role_arn
+  ecs_task_security_group_id = module.ecs.task_security_group_id
+  container_image_version    = "ds-${var.container_image_version}"
+  ecr_url                    = var.ecr_url
+  task_cpu                   = var.task_cpu
+  task_memory                = var.task_memory
+  ds_password                = var.directory_service_password
+  log_group_name             = "forgerock-monitoring"
+  log_prefix                 = "directory-service"
 }
 
