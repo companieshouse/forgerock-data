@@ -27,7 +27,7 @@ module "ecs" {
 module "connector-primary" {
   source                     = "./modules/connector-service"
   region                     = var.region
-  service_name               = "${var.service_name}-primary"
+  service_name               = "rcs-primary"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
@@ -41,13 +41,13 @@ module "connector-primary" {
   rcs_server_key             = var.rcs_server_key
   connector_name             = var.connector_name_primary
   log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "mongodb-connector-primary"
+  log_prefix                 = "rcs-primary"
 }
 
 module "connector-secondary" {
   source                     = "./modules/connector-service"
   region                     = var.region
-  service_name               = "${var.service_name}-secondary"
+  service_name               = "rcs-secondary"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
@@ -61,13 +61,13 @@ module "connector-secondary" {
   rcs_server_key             = var.rcs_server_key
   connector_name             = var.connector_name_secondary
   log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "mongodb-connector-secondary"
+  log_prefix                 = "rcs-secondary"
 }
 
 module "directory-service" {
   source                     = "./modules/ds-service"
   region                     = var.region
-  service_name               = "${var.service_name}-ds"
+  service_name               = "directory-service-backup"
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
@@ -78,6 +78,6 @@ module "directory-service" {
   task_memory                = var.task_memory
   ds_password                = var.directory_service_password
   log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "directory-service"
+  log_prefix                 = "directory-service-backup"
 }
 
