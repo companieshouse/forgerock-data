@@ -8,6 +8,13 @@
         "value": "${ds_password}"
       }
     ],
+    "portMappings": [
+      {
+        "protocol": "tcp",
+        "containerPort": 389,
+        "hostPort": 389
+      }
+    ],
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
