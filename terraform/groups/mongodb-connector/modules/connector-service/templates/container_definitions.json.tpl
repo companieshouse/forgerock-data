@@ -1,6 +1,6 @@
 [
   {
-    "name": "mongodb-connector",
+    "name": "remote-connector-server",
     "image": "${aws_ecr_url}:${tag}",
     "environment": [
       {
