@@ -13,6 +13,11 @@
         "protocol": "tcp",
         "containerPort": 389,
         "hostPort": 389
+      },
+      {
+        "protocol": "tcp",
+        "containerPort": 4444,
+        "hostPort": 4444
       }
     ],
     "logConfiguration": {
