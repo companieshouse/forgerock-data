@@ -13,7 +13,3 @@ variable "subnet_ids" {
 variable "lb_port" {
   type = number
 }
-
-variable "ecs_task_security_group_id" {
-  type = string
-}
