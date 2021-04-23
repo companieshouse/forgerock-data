@@ -77,6 +77,7 @@ module "directory_service" {
   region                     = var.region
   service_name               = "directory-service-backup"
   vpc_id                     = data.aws_vpc.vpc.id
+  vpc_cidr_block             = data.aws_vpc.vpc.cidr_block
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
