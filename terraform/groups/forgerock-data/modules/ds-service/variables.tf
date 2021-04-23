@@ -56,7 +56,3 @@ variable "log_prefix" {
 variable "target_group_arn" {
   type = string
 }
-
-variable "lb_security_group_id" {
-  type = string
-}
