@@ -66,7 +66,7 @@ module "connector_secondary" {
 
 module "directory_service_lb" {
   source       = "./modules/loadbalancing"
-  service_name = "directory-service-backup"
+  service_name = "${var.service_name}-ds-backup"
   vpc_id       = data.aws_vpc.vpc.id
   subnet_ids   = data.aws_subnet_ids.data_subnets.ids
   lb_port      = 389
