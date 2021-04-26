@@ -16,7 +16,7 @@ variable "vpc_name" {
 variable "service_name" {
   type        = string
   description = "The service name to be used when creating AWS resources"
-  default     = "forgerock-mongodb-connector"
+  default     = "forgerock-data"
 }
 
 variable "ecr_url" {
@@ -45,7 +45,6 @@ variable "rcs_client_secret" {
 
 variable "fidc_url" {
   type = string
-
 }
 
 variable "rcs_server_key" {
@@ -61,4 +60,9 @@ variable "connector_name_primary" {
 variable "connector_name_secondary" {
   type        = string
   description = "FIDC remote connector name for secondary connector"
+}
+
+variable "directory_service_password" {
+  type        = string
+  description = "Directory Service password used for backup instance"
 }
