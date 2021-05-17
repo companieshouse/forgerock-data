@@ -18,6 +18,8 @@ resource "aws_ecs_task_definition" "ds" {
   memory                   = var.task_memory
   requires_compatibilities = ["FARGATE"]
   container_definitions    = data.template_file.container_definitions.rendered
+
+  tags = var.tags
 }
 
 resource "aws_security_group" "ds" {
@@ -26,11 +28,13 @@ resource "aws_security_group" "ds" {
   vpc_id      = var.vpc_id
 
   ingress {
-    protocol        = "tcp"
-    from_port       = 389
-    to_port         = 389
-    cidr_blocks     = [var.vpc_cidr_block]
+    protocol    = "tcp"
+    from_port   = 389
+    to_port     = 389
+    cidr_blocks = [var.vpc_cidr_block]
   }
+
+  tags = var.tags
 }
 
 resource "aws_ecs_service" "ds" {
@@ -51,4 +55,6 @@ resource "aws_ecs_service" "ds" {
     container_name   = "directory-service"
     container_port   = 389
   }
+
+  tags = var.tags
 }

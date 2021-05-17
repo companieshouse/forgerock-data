@@ -4,6 +4,8 @@ resource "aws_lb" "main" {
   enable_cross_zone_load_balancing = "true"
   internal                         = true
   subnets                          = var.subnet_ids
+
+  tags = var.tags
 }
 
 resource "aws_lb_listener" "tcp" {
@@ -15,6 +17,8 @@ resource "aws_lb_listener" "tcp" {
     target_group_arn = aws_lb_target_group.main.id
     type             = "forward"
   }
+
+  tags = var.tags
 }
 
 resource "aws_lb_target_group" "main" {
@@ -23,4 +27,6 @@ resource "aws_lb_target_group" "main" {
   protocol    = "TCP"
   vpc_id      = var.vpc_id
   target_type = "ip"
+
+  tags = var.tags
 }

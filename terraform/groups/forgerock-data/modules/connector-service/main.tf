@@ -21,6 +21,8 @@ resource "aws_ecs_task_definition" "connector" {
   memory                   = var.task_memory
   requires_compatibilities = ["FARGATE"]
   container_definitions    = data.template_file.container_definitions.rendered
+
+  tags = var.tags
 }
 
 resource "aws_ecs_service" "connector" {
@@ -35,4 +37,6 @@ resource "aws_ecs_service" "connector" {
     subnets          = var.subnet_ids
     assign_public_ip = false
   }
+
+  tags = var.tags
 }
