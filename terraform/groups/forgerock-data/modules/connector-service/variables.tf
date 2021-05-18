@@ -60,3 +60,12 @@ variable "log_group_name" {
 variable "log_prefix" {
   type = string
 }
+
+variable "tags" {
+  type = object({
+    Environment    = string
+    Service        = string
+    ServiceSubType = string
+    Team           = string
+  })
+}

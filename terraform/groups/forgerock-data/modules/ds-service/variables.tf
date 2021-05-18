@@ -60,3 +60,12 @@ variable "log_prefix" {
 variable "target_group_arn" {
   type = string
 }
+
+variable "tags" {
+  type = object({
+    Environment    = string
+    Service        = string
+    ServiceSubType = string
+    Team           = string
+  })
+}

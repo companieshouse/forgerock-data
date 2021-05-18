@@ -22,6 +22,7 @@ module "ecs" {
   source       = "./modules/ecs"
   service_name = var.service_name
   vpc_id       = data.aws_vpc.vpc.id
+  tags         = local.common_tags
 }
 
 module "connector_primary" {
@@ -42,6 +43,7 @@ module "connector_primary" {
   connector_name             = var.connector_name_primary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-primary"
+  tags                       = local.common_tags
 }
 
 module "connector_secondary" {
@@ -62,6 +64,7 @@ module "connector_secondary" {
   connector_name             = var.connector_name_secondary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-secondary"
+  tags                       = local.common_tags
 }
 
 module "directory_service_lb" {
@@ -70,6 +73,7 @@ module "directory_service_lb" {
   vpc_id       = data.aws_vpc.vpc.id
   subnet_ids   = data.aws_subnet_ids.data_subnets.ids
   lb_port      = 389
+  tags         = local.common_tags
 }
 
 module "directory_service" {
@@ -90,5 +94,6 @@ module "directory_service" {
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "directory-service-backup"
   target_group_arn           = module.directory_service_lb.target_group_arn
+  tags                       = local.common_tags
 }
 

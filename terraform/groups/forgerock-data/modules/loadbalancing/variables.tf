@@ -13,3 +13,12 @@ variable "subnet_ids" {
 variable "lb_port" {
   type = number
 }
+
+variable "tags" {
+  type = object({
+    Environment    = string
+    Service        = string
+    ServiceSubType = string
+    Team           = string
+  })
+}

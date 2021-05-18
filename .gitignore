@@ -1,3 +1,4 @@
 .terraform
 *tfplan
+local.auto.tfvars
 connector/conf/ConnectorServer.properties
