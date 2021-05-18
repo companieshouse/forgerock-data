@@ -52,14 +52,24 @@ variable "rcs_server_key" {
   description = "Server key used by the remote connector server"
 }
 
-variable "connector_name_primary" {
+variable "rcs_chs_name_primary" {
   type        = string
-  description = "FIDC remote connector name for primary connector"
+  description = "FIDC remote connector name for CHS primary connector"
 }
 
-variable "connector_name_secondary" {
+variable "rcs_chs_name_secondary" {
   type        = string
-  description = "FIDC remote connector name for secondary connector"
+  description = "FIDC remote connector name for CHS secondary connector"
+}
+
+variable "rcs_ewf_name_primary" {
+  type        = string
+  description = "FIDC remote connector name for WebFiling primary connector"
+}
+
+variable "rcs_ewf_name_secondary" {
+  type        = string
+  description = "FIDC remote connector name for WebFiling secondary connector"
 }
 
 variable "directory_service_password" {
