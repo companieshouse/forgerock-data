@@ -33,7 +33,7 @@ module "chs_primary" {
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-chs-${var.container_image_version}"
+  container_image_version    = "rcs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
   task_cpu                   = var.task_cpu
   task_memory                = var.task_memory
@@ -54,7 +54,7 @@ module "chs_secondary" {
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-chs-${var.container_image_version}"
+  container_image_version    = "rcs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
   task_cpu                   = var.task_cpu
   task_memory                = var.task_memory
@@ -75,7 +75,7 @@ module "ewf_primary" {
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-ewf-${var.container_image_version}"
+  container_image_version    = "rcs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
   task_cpu                   = var.task_cpu
   task_memory                = var.task_memory
@@ -96,7 +96,7 @@ module "ewf_secondary" {
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-ewf-${var.container_image_version}"
+  container_image_version    = "rcs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
   task_cpu                   = var.task_cpu
   task_memory                = var.task_memory
