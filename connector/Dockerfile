@@ -5,6 +5,7 @@ ARG AWS_SECRET_ACCESS_KEY
 ARG AWS_DEFAULT_REGION 
 ARG RCS_VERSION
 ARG MONGODB_VERSION
+ARG ORACLE_DRIVER_VERSION
 
 ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
 ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
@@ -25,6 +26,10 @@ RUN rm -rf openicf
 # Download MongoDB connector if argument is set
 RUN if [[ -n "${MONGODB_VERSION}" ]] ; then aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/mongodb-connector-${MONGODB_VERSION}.jar . ; fi
 RUN if [[ -n "${MONGODB_VERSION}" ]] ; then mv mongodb-connector-${MONGODB_VERSION}.jar connectors ; fi
+
+# Download Oracle JDBC driver if argument is set
+RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/ojdbc7-${ORACLE_DRIVER_VERSION}.jar . ; fi
+RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then mv ojdbc7-${ORACLE_DRIVER_VERSION}.jar lib/framework ; fi
 
 
 FROM adoptopenjdk/openjdk11
