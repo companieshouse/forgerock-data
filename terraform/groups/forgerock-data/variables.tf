@@ -29,11 +29,29 @@ variable "container_image_version" {
   default     = "latest"
 }
 
-variable "task_cpu" {
+variable "chs_connector_cpu" {
   type        = number
   description = "The cpu unit limit for the ECS task"
 }
-variable "task_memory" {
+variable "chs_connector_memory" {
+  type        = number
+  description = "The memory limit for the ECS task"
+}
+
+variable "ewf_connector_cpu" {
+  type        = number
+  description = "The cpu unit limit for the ECS task"
+}
+
+variable "ewf_connector_memory" {
+  type        = number
+  description = "The memory limit for the ECS task"
+}
+variable "ds_backup_cpu" {
+  type        = number
+  description = "The cpu unit limit for the ECS task"
+}
+variable "ds_backup_memory" {
   type        = number
   description = "The memory limit for the ECS task"
 }

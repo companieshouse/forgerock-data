@@ -35,8 +35,8 @@ module "chs_primary" {
   ecs_task_security_group_id = module.ecs.task_security_group_id
   container_image_version    = "rcs-chs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.task_cpu
-  task_memory                = var.task_memory
+  task_cpu                   = var.chs_connector_cpu
+  task_memory                = var.chs_connector_memory
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
@@ -56,8 +56,8 @@ module "chs_secondary" {
   ecs_task_security_group_id = module.ecs.task_security_group_id
   container_image_version    = "rcs-chs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.task_cpu
-  task_memory                = var.task_memory
+  task_cpu                   = var.chs_connector_cpu
+  task_memory                = var.chs_connector_memory
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
@@ -77,8 +77,8 @@ module "ewf_primary" {
   ecs_task_security_group_id = module.ecs.task_security_group_id
   container_image_version    = "rcs-ewf-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.task_cpu
-  task_memory                = var.task_memory
+  task_cpu                   = var.ewf_connector_cpu
+  task_memory                = var.ewf_connector_memory
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
@@ -98,8 +98,8 @@ module "ewf_secondary" {
   ecs_task_security_group_id = module.ecs.task_security_group_id
   container_image_version    = "rcs-ewf-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.task_cpu
-  task_memory                = var.task_memory
+  task_cpu                   = var.ewf_connector_cpu
+  task_memory                = var.ewf_connector_memory
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
@@ -130,8 +130,8 @@ module "directory_service" {
   ecs_task_security_group_id = module.ecs.task_security_group_id
   container_image_version    = "ds-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.task_cpu
-  task_memory                = var.task_memory
+  task_cpu                   = var.ds_backup_cpu
+  task_memory                = var.ds_backup_memory
   ds_password                = var.directory_service_password
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "directory-service-backup"
