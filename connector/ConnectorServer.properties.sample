@@ -6,7 +6,7 @@
 ##
 ## The remote connector server (IDM) url to connect
 ##
-connectorserver.url=wss\://{FIDC_URL}/openicf
+connectorserver.url=wss\://{FIDC_URL}/openicf/0 wss\://{FIDC_URL}/openicf/1 wss\://{FIDC_URL}/openicf/2
 ##
 ## The connector server name
 ##
@@ -38,15 +38,15 @@ connectorserver.connectorServerName={CONNECTOR_NAME}
 ##
 ## The WebSocket Ping/Pong interval (seconds)
 ##
-connectorserver.pingPongInterval=10
+connectorserver.pingPongInterval=60
 ##
 ## The WebSocket connections housekeeping interval (seconds)
 ##
-connectorserver.housekeepingInterval=9
+connectorserver.housekeepingInterval=20
 ##
 ## The WebSockets groups check interval (seconds)
 ##
-#connectorserver.groupCheckInterval=900
+connectorserver.groupCheckInterval=900
 ##
 ## Number of websocket connections to open
 ##
@@ -54,11 +54,11 @@ connectorserver.webSocketConnections=3
 ##
 ## Time to live of a websocket connection (seconds)
 ##
-connectorserver.connectionTtl=88
+connectorserver.connectionTtl=3000
 ##
 ## New Connections interval (seconds)
 ##
-connectorserver.newConnectionsInterval=26
+connectorserver.newConnectionsInterval=10
 ##
 ## Token endpoint to retrieve access token if using OAuth2 to authenticate against IDM
 ##
