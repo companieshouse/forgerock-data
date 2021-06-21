@@ -29,6 +29,7 @@ module "chs_primary" {
   source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "rcs-chs-primary"
+  environment                = var.environment
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
@@ -50,6 +51,7 @@ module "chs_secondary" {
   source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "rcs-chs-secondary"
+  environment                = var.environment
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
@@ -71,6 +73,7 @@ module "ewf_primary" {
   source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "rcs-ewf-primary"
+  environment                = var.environment
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
@@ -92,6 +95,7 @@ module "ewf_secondary" {
   source                     = "./modules/connector-service"
   region                     = var.region
   service_name               = "rcs-ewf-secondary"
+  environment                = var.environment
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn

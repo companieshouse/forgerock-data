@@ -10,6 +10,7 @@ data "template_file" "container_definitions" {
     fidc_url                  = var.fidc_url
     server_key                = var.rcs_server_key
     connector_name            = var.connector_name
+    environment               = var.environment
   }
 }
 

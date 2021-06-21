@@ -18,6 +18,10 @@
       {
         "name": "CONNECTOR_NAME",
         "value": "${connector_name}"
+      },
+      {
+        "name": "ENVIRONMENT",
+        "value": "${environment}"
       }
     ],
     "logConfiguration": {
