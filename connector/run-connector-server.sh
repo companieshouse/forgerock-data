@@ -1,6 +1,7 @@
 #!/bin/sh
 
-cp ConnectorServer.properties.sample conf/ConnectorServer.properties
+cp properties/${ENVIRONMENT}/ConnectorServer.properties conf/ConnectorServer.properties
+rm -rf properties
 sed -i "s|{RCS_CLIENT_SECRET}|${RCS_CLIENT_SECRET}|g" conf/ConnectorServer.properties
 sed -i "s|{FIDC_URL}|$(echo "${FIDC_URL#https://}")|g" conf/ConnectorServer.properties
 sed -i "s|{SERVER_KEY}|${SERVER_KEY}|g" conf/ConnectorServer.properties
