@@ -1,8 +1,6 @@
 environment = "live"
 vpc_name = "CHS"
-chs_connector_cpu = 2048
-chs_connector_memory = 4096
-ewf_connector_cpu = 2048
-ewf_connector_memory = 4096
+connector_cpu = 2048
+connector_memory = 4096
 ds_backup_cpu = 1024
 ds_backup_memory = 2048

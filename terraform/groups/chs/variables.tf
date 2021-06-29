@@ -29,28 +29,20 @@ variable "container_image_version" {
   default     = "latest"
 }
 
-variable "chs_connector_cpu" {
+variable "connector_cpu" {
   type        = number
   description = "The cpu unit limit for the ECS task"
 }
-variable "chs_connector_memory" {
+variable "connector_memory" {
   type        = number
   description = "The memory limit for the ECS task"
 }
 
-variable "ewf_connector_cpu" {
-  type        = number
-  description = "The cpu unit limit for the ECS task"
-}
-
-variable "ewf_connector_memory" {
-  type        = number
-  description = "The memory limit for the ECS task"
-}
 variable "ds_backup_cpu" {
   type        = number
   description = "The cpu unit limit for the ECS task"
 }
+
 variable "ds_backup_memory" {
   type        = number
   description = "The memory limit for the ECS task"
@@ -70,24 +62,14 @@ variable "rcs_server_key" {
   description = "Server key used by the remote connector server"
 }
 
-variable "rcs_chs_name_primary" {
+variable "rcs_name_primary" {
   type        = string
   description = "FIDC remote connector name for CHS primary connector"
 }
 
-variable "rcs_chs_name_secondary" {
+variable "rcs_name_secondary" {
   type        = string
   description = "FIDC remote connector name for CHS secondary connector"
-}
-
-variable "rcs_ewf_name_primary" {
-  type        = string
-  description = "FIDC remote connector name for WebFiling primary connector"
-}
-
-variable "rcs_ewf_name_secondary" {
-  type        = string
-  description = "FIDC remote connector name for WebFiling secondary connector"
 }
 
 variable "directory_service_password" {

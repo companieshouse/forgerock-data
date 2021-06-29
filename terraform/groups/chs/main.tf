@@ -28,88 +28,44 @@ module "ecs" {
 module "chs_primary" {
   source                     = "./modules/connector-service"
   region                     = var.region
-  service_name               = "rcs-chs-primary"
+  service_name               = "rcs-primary"
   environment                = var.environment
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-chs-${var.container_image_version}"
+  container_image_version    = "rcs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.chs_connector_cpu
-  task_memory                = var.chs_connector_memory
+  task_cpu                   = var.connector_cpu
+  task_memory                = var.connector_memory
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
   connector_name             = var.rcs_chs_name_primary
   log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "rcs-chs-primary"
+  log_prefix                 = "rcs-primary"
   tags                       = local.common_tags
 }
 
 module "chs_secondary" {
   source                     = "./modules/connector-service"
   region                     = var.region
-  service_name               = "rcs-chs-secondary"
+  service_name               = "rcs-secondary"
   environment                = var.environment
   subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-chs-${var.container_image_version}"
+  container_image_version    = "rcs-${var.container_image_version}"
   ecr_url                    = var.ecr_url
-  task_cpu                   = var.chs_connector_cpu
-  task_memory                = var.chs_connector_memory
+  task_cpu                   = var.connector_cpu
+  task_memory                = var.connector_memory
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
   connector_name             = var.rcs_chs_name_secondary
   log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "rcs-chs-secondary"
-  tags                       = local.common_tags
-}
-
-module "ewf_primary" {
-  source                     = "./modules/connector-service"
-  region                     = var.region
-  service_name               = "rcs-ewf-primary"
-  environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
-  ecs_cluster_id             = module.ecs.cluster_id
-  ecs_task_role_arn          = module.ecs.task_role_arn
-  ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-ewf-${var.container_image_version}"
-  ecr_url                    = var.ecr_url
-  task_cpu                   = var.ewf_connector_cpu
-  task_memory                = var.ewf_connector_memory
-  rcs_client_secret          = var.rcs_client_secret
-  fidc_url                   = var.fidc_url
-  rcs_server_key             = var.rcs_server_key
-  connector_name             = var.rcs_ewf_name_primary
-  log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "rcs-ewf-primary"
-  tags                       = local.common_tags
-}
-
-module "ewf_secondary" {
-  source                     = "./modules/connector-service"
-  region                     = var.region
-  service_name               = "rcs-ewf-secondary"
-  environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
-  ecs_cluster_id             = module.ecs.cluster_id
-  ecs_task_role_arn          = module.ecs.task_role_arn
-  ecs_task_security_group_id = module.ecs.task_security_group_id
-  container_image_version    = "rcs-ewf-${var.container_image_version}"
-  ecr_url                    = var.ecr_url
-  task_cpu                   = var.ewf_connector_cpu
-  task_memory                = var.ewf_connector_memory
-  rcs_client_secret          = var.rcs_client_secret
-  fidc_url                   = var.fidc_url
-  rcs_server_key             = var.rcs_server_key
-  connector_name             = var.rcs_ewf_name_secondary
-  log_group_name             = "forgerock-monitoring"
-  log_prefix                 = "rcs-ewf-secondary"
+  log_prefix                 = "rcs-secondary"
   tags                       = local.common_tags
 }
 
