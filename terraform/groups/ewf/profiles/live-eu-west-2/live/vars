@@ -1,0 +1,5 @@
+environment = "live"
+vpc_name = "vpc-heritage-live"
+cpu_limit = 2048
+memory_limit = 4096
+rds_security_group_id = "sg-02c453467b8eefac8"
