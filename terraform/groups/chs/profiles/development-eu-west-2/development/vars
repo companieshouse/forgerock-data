@@ -1,0 +1,6 @@
+environment = "development"
+vpc_name = "Test & Development"
+connector_cpu = 2048
+connector_memory = 4096
+ds_backup_cpu = 1024
+ds_backup_memory = 2048

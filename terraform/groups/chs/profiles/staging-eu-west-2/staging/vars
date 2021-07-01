@@ -1,0 +1,6 @@
+environment = "staging"
+vpc_name = "CHS"
+connector_cpu = 2048
+connector_memory = 4096
+ds_backup_cpu = 1024
+ds_backup_memory = 2048

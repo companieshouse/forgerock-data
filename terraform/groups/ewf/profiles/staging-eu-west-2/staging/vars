@@ -1,0 +1,5 @@
+environment = "staging"
+vpc_name = "vpc-heritage-staging"
+cpu_limit = 2048
+memory_limit = 4096
+rds_security_group_id = "sg-0fe89412ed1b8c562"
