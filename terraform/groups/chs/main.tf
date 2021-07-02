@@ -41,7 +41,7 @@ module "chs_primary" {
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
-  connector_name             = var.rcs_chs_name_primary
+  connector_name             = var.rcs_name_primary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-primary"
   tags                       = local.common_tags
@@ -63,7 +63,7 @@ module "chs_secondary" {
   rcs_client_secret          = var.rcs_client_secret
   fidc_url                   = var.fidc_url
   rcs_server_key             = var.rcs_server_key
-  connector_name             = var.rcs_chs_name_secondary
+  connector_name             = var.rcs_name_secondary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-secondary"
   tags                       = local.common_tags
