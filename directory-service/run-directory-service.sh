@@ -26,6 +26,29 @@ DEPLOYMENT_KEY=$(./bin/dskeymgr create-deployment-key --deploymentKeyPassword $D
  --set require-secure-authentication:false \
  --no-prompt
 
+./bin/dsconfig \
+ set-password-policy-prop \
+ --hostname localhost \
+ --port 4444 \
+ --bindDN uid=admin \
+ --bindPassword $DS_PASSWORD \
+ --policy-name "Default Password Policy" \
+ --trustAll \
+ --advanced \
+ --set allow-pre-encoded-passwords:true \
+ --set require-secure-authentication:false \
+ --set require-secure-password-changes:false \
+ --no-prompt
+
+./bin/ldapmodify \
+ --hostname localhost \
+ --port 4444 \
+ --useSsl \
+ --bindDN uid=admin \
+ --bindPassword $DS_PASSWORD \
+ --trustAll \
+ ch-user.ldif
+
 unset DS_PASSWORD
 
 tail -f ./logs/ldap-access.audit.json
