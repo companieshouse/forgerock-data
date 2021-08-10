@@ -1,0 +1,30 @@
+dn: cn=schema
+changetype: modify
+add: attributeTypes
+attributeTypes: ( ch-user-status NAME 'status' SINGLE-VALUE )
+-
+add: attributeTypes
+attributeTypes: ( ch-user-legacy-pwd NAME 'legacyPassword' SINGLE-VALUE )
+-
+add: attributeTypes
+attributeTypes: ( ch-user-migrated-status NAME 'migratedPasswordStatus' SINGLE-VALUE )
+-
+add: attributeTypes
+attributeTypes: ( ch-user-origin NAME 'origin' SINGLE-VALUE )
+-
+add: attributeTypes
+attributeTypes: ( ch-user-authorised-companies NAME 'authorisedCompanies' )
+-
+add: attributeTypes
+attributeTypes: ( ch-user-ewf-customer-id NAME 'ewfCustomerID' SINGLE-VALUE )
+-
+add: attributeTypes
+attributeTypes: ( ch-user-ewf-auth-id NAME 'ewfAuthID' SINGLE-VALUE )
+-
+add: objectClasses
+objectClasses: ( 1.2.3.4.5.6.9 
+ NAME 'ch-user' 
+ DESC 'Companies House User' 
+ SUP inetOrgPerson 
+ STRUCTURAL 
+ MAY (status $ legacyPassword $ migratedPasswordStatus $ origin $ authorisedCompanies $ ewfCustomerID $ ewfAuthID) )
