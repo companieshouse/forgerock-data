@@ -39,5 +39,6 @@ WORKDIR /opt/app
 
 COPY --from=builder /opt/app .
 COPY . .
+RUN mv logback.xml lib/framework
 
 CMD [ "/opt/app/run-connector-server.sh" ]
