@@ -68,7 +68,12 @@
         <appender-ref ref="SERVER-FILE"/>
     </logger>
     <logger name="org.identityconnectors.framework.impl.api.LoggingProxy" level="DEBUG" additivity="false">
-        <appender-ref ref="TRACE-FILE"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="SERVER-FILE"/>
+    </logger>
+    <logger name="org.identityconnectors.databasetable" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="SERVER-FILE"/>
     </logger>
     <!-- To enable TraceProxy uncomment this - ->
     <logger name="org.identityconnectors.framework.api.operations" level="DEBUG" additivity="false">
