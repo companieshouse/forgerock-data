@@ -46,8 +46,8 @@ WORKDIR /opt/app
 COPY --from=builder /opt/app .
 COPY . .
 RUN mv logback.xml lib/framework
-RUN ls
-RUN mv mv connector/properties/development/logging.properties openicf/conf
-RUN ls
+RUN ls opt/app/connector/properties/development
+RUN mv mv opt/app/connector/properties/development/logging.properties opt/app/conf
+RUN ls opt/app/conf
 
 CMD [ "/opt/app/run-connector-server.sh" ]
