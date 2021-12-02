@@ -71,15 +71,15 @@
     <logger name="org.forgerock.openicf.misc" level="INFO" additivity="false">
         <appender-ref ref="CONNECTOR-FILE"/>
     </logger>
-    <logger name="org.forgerock.openicf.connectors" level="INFO" additivity="false">
+    <logger name="org.forgerock.openicf.connectors" level="FINEST" additivity="false">
         <appender-ref ref="CONNECTOR-FILE"/>
     </logger>
     <!-- Legacy connectors -->
-    <logger name="org.identityconnectors" level="INFO" additivity="false">
+    <logger name="org.identityconnectors" level="FINEST" additivity="false">
         <appender-ref ref="CONNECTOR-FILE"/>
     </logger>
     
-    <logger name="org.forgerock.openicf.framework" level="INFO" additivity="false">
+    <logger name="org.forgerock.openicf.framework" level="FINEST" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="SERVER-FILE"/>
     </logger>
@@ -106,7 +106,7 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="SERVER-FILE"/>
     </logger>
-    <logger name="org.identityconnectors.framework" level="INFO" additivity="false">
+    <logger name="org.identityconnectors.framework" level="FINEST" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="SERVER-FILE"/>
     </logger>
@@ -119,7 +119,7 @@
         <appender-ref ref="SERVER-FILE"/>
     </logger>
 
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>
 
