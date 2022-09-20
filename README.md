@@ -30,7 +30,7 @@ The connector can be ran locally using Docker, assuming there is a remote server
 cd connector
 
 # Build container image
-docker build --build-arg FIDC_URL=https://openam-example.forgeblocks.com --build-arg SERVER_KEY=XXXX  --build-arg RCS_CLIENT_SECRET=XXXX --build-arg CONNECTOR_NAME=mongodb -t mongodb-connector .
+docker build --build-arg FIDC_URL=https://openam-example.forgeblocks.com --build-arg SERVER_KEY=XXXXX  --build-arg RCS_CLIENT_SECRET=XXXX --build-arg CONNECTOR_NAME=mongodb -t mongodb-connector .
 
 # Run container
 docker run --rm -d --name mongodb-connector mongodb-connector
