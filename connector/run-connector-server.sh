@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# Specify JVM options
+JVM_OPTS="${RCS_JVM_ARGS}"
+
+echo "RCS_JVM_ARGS : ${RCS_JVM_ARGS}"
+
+# Wrap them up into the JAVA_OPTS environment variable
+export JAVA_OPTS="${JAVA_OPTS} ${JVM_OPTS}"
+
+echo "RCS JAVA_OPTS - ${JAVA_OPTS}"
+
 cp properties/${ENVIRONMENT}/ConnectorServer.properties conf/ConnectorServer.properties
 rm -rf properties
 sed -i "s|{RCS_CLIENT_SECRET}|${RCS_CLIENT_SECRET}|g" conf/ConnectorServer.properties

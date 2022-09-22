@@ -4,3 +4,4 @@ connector_cpu = 2048
 connector_memory = 4096
 ds_backup_cpu = 1024
 ds_backup_memory = 2048
+rcs_jvm_args = "-Xms256m -Xmx2048m -Xlog:gc*=warning:stdout -XX:+UseG1GC"

@@ -76,3 +76,8 @@ variable "directory_service_password" {
   type        = string
   description = "Directory Service password used for backup instance"
 }
+
+variable "rcs_jvm_args" {
+  type = string
+  description = "Flags for RCS JVM"
+}

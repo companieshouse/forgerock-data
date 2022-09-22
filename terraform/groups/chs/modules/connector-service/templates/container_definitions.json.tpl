@@ -22,6 +22,10 @@
       {
         "name": "ENVIRONMENT",
         "value": "${environment}"
+      },
+      {
+        "name": "RCS_JVM_ARGS",
+        "value": "${rcs_jvm_args}"
       }
     ],
     "logConfiguration": {

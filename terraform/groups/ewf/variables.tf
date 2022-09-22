@@ -67,3 +67,8 @@ variable "rds_security_group_id" {
   type        = string
   description = "RDS SG to attach to ECS tasks for access"
 }
+
+variable "rcs_jvm_args" {
+  type = string
+  description = "Flags for RCS JVM"
+}

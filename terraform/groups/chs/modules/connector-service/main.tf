@@ -11,6 +11,7 @@ data "template_file" "container_definitions" {
     server_key                = var.rcs_server_key
     connector_name            = var.connector_name
     environment               = var.environment
+    rcs_jvm_args              = var.rcs_jvm_args
   }
 }
 

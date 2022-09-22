@@ -45,6 +45,7 @@ module "chs_primary" {
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-primary"
   tags                       = local.common_tags
+  rcs_jvm_args               = var.rcs_jvm_args
 }
 
 module "chs_secondary" {
@@ -67,6 +68,7 @@ module "chs_secondary" {
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-secondary"
   tags                       = local.common_tags
+  rcs_jvm_args               = var.rcs_jvm_args
 }
 
 module "directory_service_lb" {
