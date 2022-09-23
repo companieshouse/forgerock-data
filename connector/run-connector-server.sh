@@ -1,12 +1,10 @@
 #!/bin/sh
 
 # Specify JVM options
-JVM_OPTS="${RCS_JVM_ARGS}"
-
 echo "RCS_JVM_ARGS : ${RCS_JVM_ARGS}"
 
 # Wrap them up into the JAVA_OPTS environment variable
-export JAVA_OPTS="${JAVA_OPTS} ${JVM_OPTS}"
+export JAVA_OPTS="${JAVA_OPTS} ${RCS_JVM_ARGS}"
 
 echo "RCS JAVA_OPTS - ${JAVA_OPTS}"
 
