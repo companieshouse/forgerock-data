@@ -1,5 +1,6 @@
 environment = "staging"
 vpc_name = "vpc-heritage-staging"
-cpu_limit = 2048
-memory_limit = 4096
+cpu_limit = 4096
+memory_limit = 8192
 rds_security_group_id = "sg-0fe89412ed1b8c562"
+rcs_jvm_args = "-Xms256m -Xmx5734m -Xlog:gc*=warning:stdout -XX:+UseG1GC"

@@ -73,3 +73,8 @@ variable "tags" {
     Team           = string
   })
 }
+
+variable "rcs_jvm_args" {
+  type = string
+  description = "Flags for RCS JVM"
+}

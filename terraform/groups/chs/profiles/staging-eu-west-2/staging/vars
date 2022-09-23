@@ -1,6 +1,7 @@
 environment = "staging"
 vpc_name = "CHS"
-connector_cpu = 2048
-connector_memory = 4096
+connector_cpu = 4096
+connector_memory = 8192
 ds_backup_cpu = 1024
 ds_backup_memory = 2048
+rcs_jvm_args = "-Xms256m -Xmx5734m -Xlog:gc*=warning:stdout -XX:+UseG1GC"

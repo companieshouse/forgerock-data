@@ -40,6 +40,8 @@ RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then mv ojdbc7-${ORACLE_DRIVER_VERS
 
 FROM adoptopenjdk/openjdk11
 
+ENV RCS_JVM_ARGS=${RCS_JVM_ARGS}
+
 RUN mkdir /opt/app
 WORKDIR /opt/app
 
