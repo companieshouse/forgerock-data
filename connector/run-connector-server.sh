@@ -1,12 +1,10 @@
 #!/bin/sh
 
-# Specify JVM options
-echo "RCS_JVM_ARGS : ${RCS_JVM_ARGS}"
+# Set the JVM options for openicf
+export OPENICF_OPTS="${RCS_JVM_ARGS}"
 
-# Wrap them up into the JAVA_OPTS environment variable
-export JAVA_OPTS="${JAVA_OPTS} ${RCS_JVM_ARGS}"
+echo "OPENICF_OPTS = ${OPENICF_OPTS}"
 
-echo "RCS JAVA_OPTS - ${JAVA_OPTS}"
 
 cp properties/${ENVIRONMENT}/ConnectorServer.properties conf/ConnectorServer.properties
 rm -rf properties
