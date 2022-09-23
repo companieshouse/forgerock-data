@@ -3,4 +3,4 @@ vpc_name = "vpc-heritage-development"
 cpu_limit = 2048
 memory_limit = 4096
 rds_security_group_id = "sg-0099721e4fc088b12"
-rcs_jvm_args = "-Xms256m -Xmx2048m -Xlog:gc*=warning:stdout -XX:+UseG1GC"
+rcs_jvm_args = "-Xms256m -Xmx2867m -Xlog:gc*=warning:stdout -XX:+UseG1GC"
