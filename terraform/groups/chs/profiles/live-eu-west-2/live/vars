@@ -1,7 +1,7 @@
 environment = "live"
 vpc_name = "CHS"
-connector_cpu = 8192
-connector_memory = 16384
+connector_cpu = 4096
+connector_memory = 8192
 ds_backup_cpu = 1024
 ds_backup_memory = 2048
-rcs_jvm_args = "-Xms256m -Xmx11468m -Xlog:gc*=warning:stdout -XX:+UseG1GC"
+rcs_jvm_args = "-Xms256m -Xmx5734m -Xlog:gc*=warning:stdout -XX:+UseG1GC"
