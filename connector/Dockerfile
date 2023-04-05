@@ -1,4 +1,4 @@
-FROM amazonlinux:2022 AS builder
+FROM amazonlinux:2 AS builder
 
 ARG AWS_ACCESS_KEY_ID 
 ARG AWS_SECRET_ACCESS_KEY
