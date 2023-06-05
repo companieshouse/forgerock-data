@@ -37,7 +37,7 @@ RUN if [[ -n "${DB_TABLE_VERSION}" ]] ; then mv databasetable-connector-${DB_TAB
 RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/ojdbc7-${ORACLE_DRIVER_VERSION}.jar . ; fi
 RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then mv ojdbc7-${ORACLE_DRIVER_VERSION}.jar lib/framework ; fi
 
-aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/testing .
+RUN aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/testing .
 
 
 FROM adoptopenjdk/openjdk11
