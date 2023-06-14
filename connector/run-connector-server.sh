@@ -5,6 +5,7 @@ export OPENICF_OPTS="${RCS_JVM_ARGS}"
 
 echo "OPENICF_OPTS = ${OPENICF_OPTS}"
 
+if [[ -n "${INACTIVE_FILE_URL}" ]]; s3 cp ${INACTIVE_FILE_URL} /opt/app/data/inactive.csv ; fi
 
 cp properties/${ENVIRONMENT}/ConnectorServer.properties conf/ConnectorServer.properties
 rm -rf properties
