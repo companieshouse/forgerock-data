@@ -5,7 +5,12 @@ export OPENICF_OPTS="${RCS_JVM_ARGS}"
 
 echo "OPENICF_OPTS = ${OPENICF_OPTS}"
 
-if [[ -n "${INACTIVE_FILE_URL}" ]]; s3 cp ${INACTIVE_FILE_URL} /opt/app/data/inactive.csv ; fi
+if [[ -n "${INACTIVE_FILE_URL}" ]]
+then
+  s3 cp ${INACTIVE_FILE_URL} /opt/app/data/inactive.csv
+else
+  echo "INACTIVE_FILE_URL env variable not found, will continue running container as this file isn't mandatory"
+fi
 
 cp properties/${ENVIRONMENT}/ConnectorServer.properties conf/ConnectorServer.properties
 rm -rf properties
