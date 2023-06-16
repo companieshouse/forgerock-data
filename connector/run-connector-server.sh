@@ -7,7 +7,7 @@ echo "OPENICF_OPTS = ${OPENICF_OPTS}"
 
 if [[ -n "${INACTIVE_FILE_URL}" ]]
 then
-  s3 cp ${INACTIVE_FILE_URL} /opt/app/data/inactive.csv
+  curl ${INACTIVE_FILE_URL} -o /opt/app/data/inactive.csv
 else
   echo "INACTIVE_FILE_URL env variable not found, will continue running container as this file isn't mandatory"
 fi

@@ -14,7 +14,7 @@ ENV AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
 
 RUN yum -y install aws-cli unzip
 
-RUN mkdir -p /opt/app/data
+RUN mkdir /opt/app
 WORKDIR /opt/app
 
 # Download and extract RCS
@@ -42,7 +42,7 @@ FROM adoptopenjdk/openjdk11
 
 ENV RCS_JVM_ARGS=${RCS_JVM_ARGS}
 
-RUN mkdir /opt/app
+RUN mkdir -p /opt/app/data
 WORKDIR /opt/app
 
 COPY --from=builder /opt/app .
