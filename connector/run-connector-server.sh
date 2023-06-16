@@ -5,7 +5,7 @@ export OPENICF_OPTS="${RCS_JVM_ARGS}"
 
 echo "OPENICF_OPTS = ${OPENICF_OPTS}"
 
-if [[ -n "${INACTIVE_FILE_URL}" ]]
+if [ -n "${INACTIVE_FILE_URL}" ]
 then
   curl ${INACTIVE_FILE_URL} -o /opt/app/data/inactive.csv
 else
