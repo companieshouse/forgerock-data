@@ -26,6 +26,10 @@
       {
         "name": "RCS_JVM_ARGS",
         "value": "${rcs_jvm_args}"
+      },
+      {
+        "name": "INACTIVE_FILE_URL",
+        "value": "${inactive_file_url}"
       }
     ],
     "logConfiguration": {

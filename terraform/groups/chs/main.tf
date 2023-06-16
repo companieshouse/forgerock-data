@@ -15,6 +15,10 @@ data "aws_subnet_ids" "data_subnets" {
   }
 }
 
+data "vault_generic_secret" "secrets" {
+  path = "applications/${var.environment}-${var.region}/chs/${var.service_name}"
+}
+
 ###
 # Modules
 ###
@@ -46,6 +50,7 @@ module "chs_primary" {
   log_prefix                 = "rcs-primary"
   tags                       = local.common_tags
   rcs_jvm_args               = var.rcs_jvm_args
+  inactive_file_url          = local.inactive_file_url
 }
 
 module "chs_secondary" {
@@ -69,6 +74,7 @@ module "chs_secondary" {
   log_prefix                 = "rcs-secondary"
   tags                       = local.common_tags
   rcs_jvm_args               = var.rcs_jvm_args
+  inactive_file_url          = local.inactive_file_url
 }
 
 module "directory_service_lb" {
