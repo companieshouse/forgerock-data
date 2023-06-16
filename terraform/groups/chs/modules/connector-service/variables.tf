@@ -78,3 +78,8 @@ variable "rcs_jvm_args" {
   type = string
   description = "Flags for RCS JVM"
 }
+
+variable "inactive_file_url" {
+  type        = string
+  description = "URL for the inactive file"
+}

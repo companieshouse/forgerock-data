@@ -12,6 +12,7 @@ data "template_file" "container_definitions" {
     connector_name            = var.connector_name
     environment               = var.environment
     rcs_jvm_args              = var.rcs_jvm_args
+    inactive_file_url         = var.inactive_file_url
   }
 }
 
