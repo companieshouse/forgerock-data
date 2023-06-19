@@ -42,7 +42,7 @@ FROM adoptopenjdk/openjdk11
 
 ENV RCS_JVM_ARGS=${RCS_JVM_ARGS}
 
-RUN mkdir /opt/app
+RUN mkdir -p /opt/app/data
 WORKDIR /opt/app
 
 COPY --from=builder /opt/app .
