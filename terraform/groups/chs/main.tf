@@ -107,3 +107,26 @@ module "directory_service" {
   tags                       = local.common_tags
 }
 
+module "forgerock_export" {
+  source                     = "./modules/connector-service"
+  region                     = var.region
+  service_name               = "forgerock-export"
+  environment                = var.environment
+  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  ecs_cluster_id             = module.ecs.cluster_id
+  ecs_task_role_arn          = module.ecs.task_role_arn
+  ecs_task_security_group_id = module.ecs.task_security_group_id
+  container_image_version    = "rcs-${var.container_image_version}"
+  ecr_url                    = var.ecr_url
+  task_cpu                   = var.connector_cpu
+  task_memory                = var.connector_memory
+  rcs_client_secret          = var.rcs_client_secret
+  fidc_url                   = var.fidc_url
+  rcs_server_key             = var.rcs_server_key
+  connector_name             = "forgerock-export"
+  log_group_name             = "forgerock-monitoring"
+  log_prefix                 = "forgerock-export"
+  tags                       = local.common_tags
+  rcs_jvm_args               = var.rcs_jvm_args
+  inactive_file_url          = local.inactive_file_url
+}
