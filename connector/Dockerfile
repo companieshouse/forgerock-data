@@ -38,7 +38,7 @@ RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then aws s3 cp s3://development-eu-
 RUN if [[ -n "${ORACLE_DRIVER_VERSION}" ]] ; then mv ojdbc7-${ORACLE_DRIVER_VERSION}.jar lib/framework ; fi
 
 
-FROM adoptopenjdk/openjdk11
+FROM eclipse-temurin:17-jdk
 
 ENV RCS_JVM_ARGS=${RCS_JVM_ARGS}
 
