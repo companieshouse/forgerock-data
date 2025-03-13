@@ -21,3 +21,4 @@ sed -i "s|{CONNECTOR_NAME}|${CONNECTOR_NAME}|g" conf/ConnectorServer.properties
 
 bin/ConnectorServer.sh /setkey ${SERVER_KEY}
 bin/ConnectorServer.sh jpda /run
+ 
