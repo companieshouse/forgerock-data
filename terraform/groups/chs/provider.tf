@@ -1,10 +1,14 @@
 terraform {
-  backend "s3" {}
+  backend "s3" {
+    bucket = "development-eu-west-2.terraform-state.ch.gov.uk"
+    key = "forgerock-data/development/chs.tfstate"
+    region = "eu-west-2"
+  }
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.0"
+      version = "~> 5.0"
     }
   }
 }
