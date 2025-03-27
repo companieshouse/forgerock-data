@@ -38,7 +38,7 @@ module "chs_primary" {
   region                     = var.region
   service_name               = "rcs-primary"
   environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids                 = data.aws_subnets.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
@@ -62,7 +62,7 @@ module "chs_secondary" {
   region                     = var.region
   service_name               = "rcs-secondary"
   environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids                 = data.aws_subnets.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
@@ -85,7 +85,7 @@ module "directory_service_lb" {
   source       = "./modules/loadbalancing"
   service_name = "${var.service_name}-ds-backup"
   vpc_id       = data.aws_vpc.vpc.id
-  subnet_ids   = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids   = data.aws_subnets.data_subnets.ids
   lb_port      = 389
   tags         = local.common_tags
 }
@@ -96,7 +96,7 @@ module "directory_service" {
   service_name               = "directory-service-backup"
   vpc_id                     = data.aws_vpc.vpc.id
   vpc_cidr_block             = data.aws_vpc.vpc.cidr_block
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids                 = data.aws_subnets.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
@@ -116,7 +116,7 @@ module "forgerock_export" {
   region                     = var.region
   service_name               = "forgerock-export"
   environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids                 = data.aws_subnets.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
