@@ -32,7 +32,7 @@ module "primary" {
   region                     = var.region
   service_name               = "rcs-primary"
   environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids                 = data.aws_subnets.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
@@ -56,7 +56,7 @@ module "secondary" {
   region                     = var.region
   service_name               = "rcs-secondary"
   environment                = var.environment
-  subnet_ids                 = data.aws_subnet_ids.data_subnets.ids
+  subnet_ids                 = data.aws_subnets.data_subnets.ids
   ecs_cluster_id             = module.ecs.cluster_id
   ecs_task_role_arn          = module.ecs.task_role_arn
   ecs_task_security_group_id = module.ecs.task_security_group_id
