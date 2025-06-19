@@ -30,7 +30,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
     <logger name="org.identityconnectors.framework.impl.api.LoggingProxy" level="DEBUG" additivity="false">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="TRACE-FILE"/>
     </logger>
     <logger name="org.identityconnectors.databasetable" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
