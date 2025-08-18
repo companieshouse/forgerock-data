@@ -1,0 +1,6 @@
+environment = "live"
+vpc_name = "vpc-heritage-live"
+cpu_limit = 4096
+memory_limit = 8192
+rds_security_group_id = "sg-02c453467b8eefac8"
+rcs_jvm_args = "-Xms256m -Xmx5734m -Xlog:gc*=warning:stdout -XX:+UseG1GC"
