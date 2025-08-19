@@ -28,7 +28,7 @@ RUN rm -rf openicf
 RUN if [[ -n "${MONGODB_VERSION}" ]] ; then aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/mongodb-connector-${MONGODB_VERSION}.jar . ; fi
 RUN if [[ -n "${MONGODB_VERSION}" ]] ; then mv mongodb-connector-${MONGODB_VERSION}.jar connectors ; fi
 
-# Download DB table connector if argument is set
+# Download DB table connector if argument is set 
 RUN if [[ -n "${DB_TABLE_VERSION}" ]] ; then aws s3 cp s3://development-eu-west-2.resources.ch.gov.uk/packages/forgerock/databasetable-connector-${DB_TABLE_VERSION}.jar . ; fi
 RUN if [[ -n "${DB_TABLE_VERSION}" ]] ; then rm connectors/databasetable-connector-*.jar ; fi
 RUN if [[ -n "${DB_TABLE_VERSION}" ]] ; then mv databasetable-connector-${DB_TABLE_VERSION}.jar connectors ; fi
