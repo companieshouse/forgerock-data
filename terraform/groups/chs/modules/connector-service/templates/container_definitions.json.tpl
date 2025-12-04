@@ -4,16 +4,8 @@
     "image": "${aws_ecr_url}:${tag}",
     "environment": [
       {
-        "name": "RCS_CLIENT_SECRET",
-        "value": "${rcs_client_secret}"
-      },
-      {
         "name": "FIDC_URL",
         "value": "${fidc_url}"
-      },
-      {
-        "name": "SERVER_KEY",
-        "value": "${server_key}"
       },
       {
         "name": "CONNECTOR_NAME",
@@ -30,6 +22,16 @@
       {
         "name": "INACTIVE_FILE_URL",
         "value": "${inactive_file_url}"
+      }
+    ],
+    "secrets": [
+      { 
+        "name": "RCS_CLIENT_SECRET",
+        "valueFrom": "${rcs_client_secret}"
+      },
+      {
+        "name": "SERVER_KEY",
+        "valueFrom": "${server_key}"
       }
     ],
     "logConfiguration": {

@@ -78,6 +78,6 @@ variable "directory_service_password" {
 }
 
 variable "rcs_jvm_args" {
-  type = string
+  type        = string
   description = "Flags for RCS JVM"
 }

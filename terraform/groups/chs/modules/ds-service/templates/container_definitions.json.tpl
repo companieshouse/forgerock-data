@@ -2,10 +2,10 @@
   {
     "name": "directory-service",
     "image": "${aws_ecr_url}:${tag}",
-    "environment": [
-      {
+    "secrets": [
+      { 
         "name": "DS_PASSWORD",
-        "value": "${ds_password}"
+        "valueFrom": "${ds_password}"
       }
     ],
     "portMappings": [

@@ -75,7 +75,7 @@ variable "tags" {
 }
 
 variable "rcs_jvm_args" {
-  type = string
+  type        = string
   description = "Flags for RCS JVM"
 }
 

@@ -26,11 +26,20 @@ data "vault_generic_secret" "secrets" {
 ###
 # Modules
 ###
+
+module "secrets" {
+  source      = "./secrets"
+  name_prefix = local.name_prefix
+  environment = var.environment
+  secrets     = data.vault_generic_secret.secrets.data
+}
+
 module "ecs" {
   source       = "./modules/ecs"
   service_name = var.service_name
   vpc_id       = data.aws_vpc.vpc.id
   tags         = local.common_tags
+  secret_arns  = values(module.secrets.secrets_arn_map)
 }
 
 module "chs_primary" {
@@ -46,9 +55,9 @@ module "chs_primary" {
   ecr_url                    = var.ecr_url
   task_cpu                   = var.connector_cpu
   task_memory                = var.connector_memory
-  rcs_client_secret          = var.rcs_client_secret
+  rcs_client_secret          = module.secrets.secrets_arn_map["rcs_client_secret"]
   fidc_url                   = var.fidc_url
-  rcs_server_key             = var.rcs_server_key
+  rcs_server_key             = module.secrets.secrets_arn_map["rcs_server_key"]
   connector_name             = var.rcs_name_primary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-primary"
@@ -70,9 +79,9 @@ module "chs_secondary" {
   ecr_url                    = var.ecr_url
   task_cpu                   = var.connector_cpu
   task_memory                = var.connector_memory
-  rcs_client_secret          = var.rcs_client_secret
+  rcs_client_secret          = module.secrets.secrets_arn_map["rcs_client_secret"]
   fidc_url                   = var.fidc_url
-  rcs_server_key             = var.rcs_server_key
+  rcs_server_key             = module.secrets.secrets_arn_map["rcs_server_key"]
   connector_name             = var.rcs_name_secondary
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "rcs-secondary"
@@ -104,7 +113,7 @@ module "directory_service" {
   ecr_url                    = var.ecr_url
   task_cpu                   = var.ds_backup_cpu
   task_memory                = var.ds_backup_memory
-  ds_password                = var.directory_service_password
+  ds_password                = module.secrets.secrets_arn_map["ds_password"]
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "directory-service-backup"
   target_group_arn           = module.directory_service_lb.target_group_arn
@@ -124,9 +133,9 @@ module "forgerock_export" {
   ecr_url                    = var.ecr_url
   task_cpu                   = var.connector_cpu
   task_memory                = var.connector_memory
-  rcs_client_secret          = var.rcs_client_secret
+  rcs_client_secret          = module.secrets.secrets_arn_map["rcs_client_secret"]
   fidc_url                   = var.fidc_url
-  rcs_server_key             = var.rcs_server_key
+  rcs_server_key             = module.secrets.secrets_arn_map["rcs_server_key"]
   connector_name             = "forgerock-export"
   log_group_name             = "forgerock-monitoring"
   log_prefix                 = "forgerock-export"
